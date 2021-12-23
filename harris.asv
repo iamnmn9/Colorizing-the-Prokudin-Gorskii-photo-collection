@@ -1,0 +1,17 @@
+for i = 1:6
+    raw_images = imread(strcat('image',int2str(i),'.jpg'));
+    %%%imshow(raw_images)
+    [h,w] = size(raw_images);
+    %%disp(h)
+    divide = h/3;
+    %%BGR - images by dividing the whole image
+    B_img = raw_images(1:divide, 1:w);
+    G_img = raw_images(1+divide:divide+divide, 1:w);
+    R_img = raw_images(1+divide+divide:divide+divide+divide, 1:w);  
+    
+    
+    [aligned_corners] = im_align3(B_img,G_img,R_img);
+    
+    imwrite()
+    
+end
